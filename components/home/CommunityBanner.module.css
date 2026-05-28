@@ -1,0 +1,238 @@
+.bannerSection {
+  background-color: var(--bg-light);
+  padding: 80px 0;
+  position: relative;
+  overflow: visible;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.bannerWrapper {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #152c1b 100%);
+  border-radius: var(--border-radius-xl);
+  padding: 64px 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(226, 235, 212, 0.08);
+}
+
+.bannerWrapper::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(207, 164, 106, 0.12) 0%, rgba(207, 164, 106, 0) 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.plantOverlay {
+  position: absolute;
+  bottom: -15px;
+  left: 64px;
+  z-index: 3;
+}
+
+.polaroidFrame {
+  background-color: #ffffff;
+  padding: 12px 12px 24px 12px;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 3px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  width: 174px;
+  position: relative;
+}
+
+.polaroidFrame::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 55px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-left: 1px dashed rgba(0, 0, 0, 0.08);
+  border-right: 1px dashed rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.imageWrapper {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.plantImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroidCaption {
+  display: block;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: #4f6b57;
+  margin-top: 10px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.content {
+  flex: 1;
+  max-width: 580px;
+  margin-left: 180px; /* Offset to clear the overlapping plant */
+  z-index: 2;
+  position: relative;
+}
+
+.title {
+  color: var(--bg-light);
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.desc {
+  color: rgba(251, 251, 248, 0.75);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.btnRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.learnMore {
+  color: var(--bg-light);
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.learnMore::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.learnMore:hover {
+  color: var(--accent-gold);
+}
+
+.learnMore:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Vector elements */
+.vectorContainer {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 320px;
+  height: 120%;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.waveLayer {
+  color: var(--bg-light);
+  transform: rotate(-15deg);
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+
+.circleBg {
+  width: 240px;
+  height: 240px;
+  border: 1px dashed rgba(251, 251, 248, 0.25);
+  border-radius: var(--border-radius-circle);
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circleBgInner {
+  width: 170px;
+  height: 170px;
+  border: 1px solid rgba(251, 251, 248, 0.12);
+  border-radius: var(--border-radius-circle);
+}
+
+@media (max-width: 992px) {
+  .bannerWrapper {
+    padding: 48px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .plantOverlay {
+    display: none;
+  }
+  
+  .content {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 28px;
+  }
+  
+  .btnRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .learnMore {
+    text-align: center;
+  }
+  
+  .bannerSection {
+    padding: 40px 0;
+  }
+}

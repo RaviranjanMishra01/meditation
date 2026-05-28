@@ -1,0 +1,144 @@
+.guidanceSection {
+  background-color: var(--bg-light);
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainDesc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.pointsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pointItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.checkWrapper {
+  width: 28px;
+  height: 28px;
+  background-color: rgba(164, 200, 117, 0.2);
+  color: var(--primary-dark);
+  border-radius: var(--border-radius-circle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pointTitle {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-bottom: 4px;
+}
+
+.pointDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.visualCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blobWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 1 / 1;
+}
+
+.blobBackground {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 90%;
+  height: 90%;
+  background-color: var(--primary-light);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  z-index: 1;
+  animation: blobMorph 8s ease-in-out infinite;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  height: 95%;
+  z-index: 2;
+  border-radius: 30% 70% 70% 30% / 50% 60% 40% 50%;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  animation: blobMorph 8s ease-in-out infinite alternate;
+}
+
+.instructorImage {
+  object-fit: cover;
+}
+
+@keyframes blobMorph {
+  0% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+  50% {
+    border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%;
+  }
+  100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+  }
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+  
+  .visualCol {
+    order: -1;
+  }
+  
+  .blobWrapper {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 576px) {
+  .guidanceSection {
+    padding: 60px 0;
+  }
+}

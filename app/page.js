@@ -1,66 +1,42 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use strict";
+
+"use client";
+
+import { useState } from "react";
+import SplashWelcome from "../components/motion/SplashWelcome";
+import Hero from "../components/home/Hero";
+import MindfulnessIntro from "../components/home/MindfulnessIntro";
+import ClassesPreview from "../components/home/ClassesPreview";
+import ExpertGuidance from "../components/home/ExpertGuidance";
+import GuidesSection from "../components/home/GuidesSection";
+import Testimonials from "../components/home/Testimonials";
+import CommunityBanner from "../components/home/CommunityBanner";
+import PricingSection from "../components/home/PricingSection";
+import FAQSection from "../components/home/FAQSection";
 
 export default function Home() {
+  const [hasEntered, setHasEntered] = useState(false);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      {!hasEntered && (
+        <SplashWelcome onEnter={() => setHasEntered(true)} />
+      )}
+      <div style={{ 
+        opacity: hasEntered ? 1 : 0, 
+        visibility: hasEntered ? "visible" : "hidden",
+        transition: "opacity 1.2s ease, visibility 1.2s ease" 
+      }}>
+        <Hero />
+        <MindfulnessIntro />
+        <ClassesPreview />
+        <ExpertGuidance />
+        <GuidesSection />
+        <Testimonials />
+        <CommunityBanner />
+        <PricingSection />
+        <FAQSection />
+      </div>
+    </>
   );
 }

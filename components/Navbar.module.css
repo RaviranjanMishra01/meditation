@@ -1,0 +1,136 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  transition: var(--transition-smooth);
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background-color: rgba(251, 251, 248, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(27, 58, 36, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.logoIcon {
+  color: var(--accent-gold);
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+  position: relative;
+  padding: 6px 0;
+}
+
+.activeLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-gold);
+  z-index: 1;
+}
+
+.link:hover,
+.active {
+  color: var(--primary-dark);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-dark);
+  padding: 4px;
+}
+
+/* Mobile Drawer */
+.mobileDrawer {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 72px);
+  background-color: var(--bg-light);
+  z-index: 999;
+}
+
+.drawerContainer {
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mobileLink {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-dark);
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(27, 58, 36, 0.05);
+}
+
+.mobileActive {
+  color: var(--primary-dark);
+}
+
+.drawerActions {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .nav,
+  .actions {
+    display: none;
+  }
+  
+  .menuToggle {
+    display: block;
+  }
+}

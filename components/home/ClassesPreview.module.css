@@ -1,0 +1,174 @@
+.classesSection {
+  background-color: var(--bg-sage);
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 56px;
+  align-items: flex-end;
+}
+
+.titleCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.descCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.descCol p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.exploreAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-dark);
+  font-weight: 600;
+  font-size: 15px;
+  width: fit-content;
+}
+
+.exploreAllLink:hover {
+  color: var(--accent-gold);
+}
+
+.exploreAllLink:hover svg {
+  transform: translateX(4px);
+}
+
+.exploreAllLink svg {
+  transition: var(--transition-fast);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--bg-light);
+  border: 1px solid rgba(27, 58, 36, 0.05);
+  padding: 32px;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+/* Alternate highlighted card style */
+.cardHighlight {
+  background-color: var(--primary-dark);
+  color: var(--bg-light);
+  border-color: var(--primary-dark);
+}
+
+.cardHighlight .cardTitle {
+  color: var(--bg-light);
+}
+
+.cardHighlight .cardDesc {
+  color: rgba(251, 251, 248, 0.7);
+}
+
+.cardHighlight .iconWrapper {
+  background-color: rgba(251, 251, 248, 0.1);
+  color: var(--accent-green);
+}
+
+.cardHighlight .cardLink {
+  color: var(--accent-green);
+}
+
+.iconWrapper {
+  width: 52px;
+  height: 52px;
+  background-color: var(--bg-sage);
+  color: var(--primary-dark);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.cardDesc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin-top: auto;
+  width: fit-content;
+}
+
+.cardLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+.arrow {
+  transition: var(--transition-fast);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardHighlight:hover {
+  background-color: var(--primary-medium);
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .headerRow {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .classesSection {
+    padding: 60px 0;
+  }
+}
