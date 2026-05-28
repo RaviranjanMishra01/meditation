@@ -83,19 +83,19 @@ export default async function BlogPostLayout({ children, params }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://calmify-meditation.vercel.app/"
+        "item": "https://meditation-nine-sigma.vercel.app/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Wellness Blog",
-        "item": "https://calmify-meditation.vercel.app/blog"
+        "item": "https://meditation-nine-sigma.vercel.app/blog"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": post.title,
-        "item": `https://calmify-meditation.vercel.app/blog/${post.slug}`
+        "item": `https://meditation-nine-sigma.vercel.app/blog/${post.slug}`
       }
     ]
   };
@@ -106,24 +106,24 @@ export default async function BlogPostLayout({ children, params }) {
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.desc,
-    "image": `https://calmify-meditation.vercel.app${post.img}`,
+    "image": `https://meditation-nine-sigma.vercel.app${post.img}`,
     "datePublished": "2026-05-28", // Simplified fallback for date format parsing
     "author": {
       "@type": "Person",
       "name": post.author,
-      "url": "https://calmify-meditation.vercel.app/guides"
+      "url": "https://meditation-nine-sigma.vercel.app/guides"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Calmify Sanctuary",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://calmify-meditation.vercel.app/next.svg"
+        "url": "https://meditation-nine-sigma.vercel.app/next.svg"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://calmify-meditation.vercel.app/blog/${post.slug}`
+      "@id": `https://meditation-nine-sigma.vercel.app/blog/${post.slug}`
     }
   };
 

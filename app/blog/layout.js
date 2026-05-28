@@ -14,13 +14,13 @@ export default function BlogLayout({ children }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://calmify-meditation.vercel.app/"
+        "item": "https://meditation-nine-sigma.vercel.app/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Wellness Blog",
-        "item": "https://calmify-meditation.vercel.app/blog"
+        "item": "https://meditation-nine-sigma.vercel.app/blog"
       }
     ]
   };

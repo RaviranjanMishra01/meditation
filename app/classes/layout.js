@@ -16,13 +16,13 @@ export default function ClassesLayout({ children }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://calmify-meditation.vercel.app/"
+        "item": "https://meditation-nine-sigma.vercel.app/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Classes",
-        "item": "https://calmify-meditation.vercel.app/classes"
+        "item": "https://meditation-nine-sigma.vercel.app/classes"
       }
     ]
   };
@@ -39,7 +39,7 @@ export default function ClassesLayout({ children }) {
         "provider": {
           "@type": "Organization",
           "name": "Calmify Sanctuary",
-          "sameAs": "https://calmify-meditation.vercel.app/"
+          "sameAs": "https://meditation-nine-sigma.vercel.app/"
         }
       },
       {
@@ -49,7 +49,7 @@ export default function ClassesLayout({ children }) {
         "provider": {
           "@type": "Organization",
           "name": "Calmify Sanctuary",
-          "sameAs": "https://calmify-meditation.vercel.app/"
+          "sameAs": "https://meditation-nine-sigma.vercel.app/"
         }
       },
       {
@@ -59,7 +59,7 @@ export default function ClassesLayout({ children }) {
         "provider": {
           "@type": "Organization",
           "name": "Calmify Sanctuary",
-          "sameAs": "https://calmify-meditation.vercel.app/"
+          "sameAs": "https://meditation-nine-sigma.vercel.app/"
         }
       }
     ]

@@ -14,13 +14,13 @@ export default function PricingLayout({ children }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://calmify-meditation.vercel.app/"
+        "item": "https://meditation-nine-sigma.vercel.app/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Membership Pathways",
-        "item": "https://calmify-meditation.vercel.app/pricing"
+        "item": "https://meditation-nine-sigma.vercel.app/pricing"
       }
     ]
   };

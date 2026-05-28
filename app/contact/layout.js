@@ -14,13 +14,13 @@ export default function ContactLayout({ children }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://calmify-meditation.vercel.app/"
+        "item": "https://meditation-nine-sigma.vercel.app/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Contact Sanctuary",
-        "item": "https://calmify-meditation.vercel.app/contact"
+        "item": "https://meditation-nine-sigma.vercel.app/contact"
       }
     ]
   };

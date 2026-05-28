@@ -2,12 +2,16 @@
 
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { LazyMotion, domAnimation, MotionConfig } from "framer-motion";
 import Lenis from "lenis";
 import { springCalm } from "../../lib/motion/easing";
 
 export default function MotionProvider({ children }) {
+  const lenisRef = useRef(null);
+  const pathname = usePathname();
+
   useEffect(() => {
     // Initialize Lenis smooth scroll
     const lenis = new Lenis({
@@ -20,6 +24,8 @@ export default function MotionProvider({ children }) {
       touchMultiplier: 1.5,
     });
 
+    lenisRef.current = lenis;
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -30,8 +36,16 @@ export default function MotionProvider({ children }) {
     // Clean up on unmount
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  // Scroll to top on page navigation
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    }
+  }, [pathname]);
 
   return (
     <LazyMotion features={domAnimation} strict>

@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, Calendar, Clock, ArrowRight, AlertCircle, X } from "lucide-react";
@@ -75,11 +75,19 @@ const ALL_POSTS = [
   },
 ];
 
-export default function BlogPage() {
-  const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
-
+export default function BlogPage({ initialCategory = "All" }) {
   const categories = ["All", "Mindfulness", "Yoga", "Breathwork", "Acoustics"];
+
+  const normalizedCategory = categories.find(
+    (c) => c.toLowerCase() === initialCategory.toLowerCase()
+  ) || "All";
+
+  const [search, setSearch] = useState("");
+  const [activeCategory, setActiveCategory] = useState(normalizedCategory);
+
+  useEffect(() => {
+    setActiveCategory(normalizedCategory);
+  }, [initialCategory, normalizedCategory]);
 
   const filteredPosts = ALL_POSTS.filter((post) => {
     const matchesSearch =
@@ -117,15 +125,20 @@ export default function BlogPage() {
           <div className={styles.controlsBar}>
             {/* Category tabs */}
             <div className={styles.tabs}>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`${styles.tabBtn} ${activeCategory === cat ? styles.activeTab : ""}`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {categories.map((cat) => {
+                const isSelected = activeCategory.toLowerCase() === cat.toLowerCase();
+                const categoryPath = cat === "All" ? "/blog" : `/blog/category/${cat.toLowerCase()}`;
+                return (
+                  <Link
+                    key={cat}
+                    href={categoryPath}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`${styles.tabBtn} ${isSelected ? styles.activeTab : ""}`}
+                  >
+                    {cat}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Search Input */}

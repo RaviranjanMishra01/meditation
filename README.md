@@ -13,7 +13,7 @@ Features an organic design system, cinematic onboarding welcome splash, custom a
 
 ## 🌐 Live Demo
 
-> 🚀 **Live Site:** [calmify-meditation.vercel.app](https://calmify-meditation.vercel.app)
+> 🚀 **Live Site:** [meditation-nine-sigma.vercel.app](https://meditation-nine-sigma.vercel.app)
 
 ---
 

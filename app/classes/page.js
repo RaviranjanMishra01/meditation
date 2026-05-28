@@ -4,6 +4,7 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { Search, Calendar, Clock, User, Check, AlertCircle, X } from "lucide-react";
 import { m } from "framer-motion";
 import styles from "./classes.module.css";
@@ -95,12 +96,18 @@ const ALL_CLASSES = [
   },
 ];
 
-function ClassesCatalog() {
+function ClassesCatalog({ initialCategory = "All" }) {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category");
 
+  const categories = ["All", "Meditation", "Yoga", "Breathwork", "Sound Healing"];
+
+  const normalizedCategory = categories.find(
+    (c) => c.toLowerCase() === (categoryParam || initialCategory).toLowerCase()
+  ) || "All";
+
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState(normalizedCategory);
   const [selectedClass, setSelectedClass] = useState(null); // For booking modal
   const [bookingDate, setBookingDate] = useState("");
   const [bookingSlot, setBookingSlot] = useState("");
@@ -109,12 +116,8 @@ function ClassesCatalog() {
   const [isBooked, setIsBooked] = useState(false);
 
   useEffect(() => {
-    if (categoryParam) {
-      setActiveCategory(categoryParam);
-    }
-  }, [categoryParam]);
-
-  const categories = ["All", "Meditation", "Yoga", "Breathwork", "Sound Healing"];
+    setActiveCategory(normalizedCategory);
+  }, [categoryParam, initialCategory, normalizedCategory]);
 
   const filteredClasses = ALL_CLASSES.filter((cls) => {
     const matchesSearch =
@@ -175,15 +178,20 @@ function ClassesCatalog() {
           <div className={styles.controlsBar}>
             {/* Category tabs */}
             <div className={styles.tabs}>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`${styles.tabBtn} ${activeCategory === cat ? styles.activeTab : ""}`}
-                >
-                  {cat}
-                </button>
-              ))}
+              {categories.map((cat) => {
+                const isSelected = activeCategory.toLowerCase() === cat.toLowerCase();
+                const categoryPath = cat === "All" ? "/classes" : `/classes/category/${cat.toLowerCase().replace(" ", "-")}`;
+                return (
+                  <Link
+                    key={cat}
+                    href={categoryPath}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`${styles.tabBtn} ${isSelected ? styles.activeTab : ""}`}
+                  >
+                    {cat}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Search Input */}
@@ -376,10 +384,10 @@ function ClassesCatalog() {
   );
 }
 
-export default function ClassesPage() {
+export default function ClassesPage({ initialCategory = "All" }) {
   return (
     <Suspense fallback={<div className={styles.pageWrapper} style={{ textAlign: "center", padding: "100px" }}>Loading class catalog...</div>}>
-      <ClassesCatalog />
+      <ClassesCatalog initialCategory={initialCategory} />
     </Suspense>
   );
 }
